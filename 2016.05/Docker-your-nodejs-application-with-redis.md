@@ -53,10 +53,12 @@ docker run -d --name node-redis-docker --link redis:redis node-redis-docker
 
 ```
 
-6. 你可以用 `docker logs` 的指令來觀看產生的結果：
+6.你可以用 `docker logs` 的指令來觀看產生的結果：
 
 ```
 docker logs node-redis-docker
 ```
 
 ![image](https://github.com/kevingo/blog/raw/master/screenshot/docker-logs.png)
+
+7.如果懶得自己寫，也可以抓打包好的程式： [node-redis-docker](https://github.com/kevingo/node-redis-docker)
