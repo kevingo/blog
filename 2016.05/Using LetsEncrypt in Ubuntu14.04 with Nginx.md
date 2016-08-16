@@ -52,10 +52,10 @@ Choice of server plugins for obtaining and installing cert:
 ```
 要注意的是，如果你用 apache 或 standalone 的方式，會需要使用 80 port，如果你的 web server 可以停下來當然沒問題，不然就可以改用 webroot 的方式來驗證。
 
-在這裡我指定用 webroot 的方式進行驗證，驗證的目錄就定在 /etc/nginx/html 下，至於 `-d`  的參數則是用來指定 SSL 憑證所作用的 domain name。`certonly` 則是說，我只要產生憑證而已，不要亂搞我的 web server 任何的參數。
+在這裡我指定用 webroot 的方式進行驗證，驗證的目錄就定在 /usr/share/nginx/html 下，至於 `-d`  的參數則是用來指定 SSL 憑證所作用的 domain name。`certonly` 則是說，我只要產生憑證而已，不要亂搞我的 web server 任何的參數。
 
 ```
-./letsencrypt-auto certonly -a webroot --webroot-path=/etc/nginx/html -d example.com -d blog.example.com
+./letsencrypt-auto certonly -a webroot --webroot-path=/usr/share/nginx/html -d example.com -d blog.example.com
 ```
 
 成功之後，應該會看到類似的訊息：
