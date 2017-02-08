@@ -1,0 +1,9 @@
+- [Creating NGINX Rewrite Rules](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)
+    - nginx return / rewrite comparison
+- [使用Amazon CloudFront簽名URL+S3實現私有內容發佈](http://mp.weixin.qq.com/s/9_o7vSwDP95d8-dGn6xqqQ)
+    - aws、cloudfront、s3
+- AWS RDS 要 restore snapshot 的時候，事實上是會跑一個建立新 DB 的流程，如果想要 restore 成原本的 DB，可以先 rename 舊的 DB，再把要 restore 的 DB instance 的名稱取的一模一樣，這樣連 endpoints 都會一樣了
+- AWS RDS 包含兩種備份機制
+    - automatic backup: AWS RDS 會自動針對 db 和 transaction logs 進行備份，這些備份會被保存最多 35 天。可以 restore 最近 5 mins 內的資料
+    - snapshot: 使用者手動備份，會持續保存，除非 user 自己 delete 它
+- 
