@@ -24,4 +24,25 @@ SVM 主要是 binary classifier，如果要解決多類別的問題是，可以�
 	- [理解 SVM 背後的數學原理（1）](http://blog.jobbole.com/102082/)
 	- [支持向量機器 (Support Vector Machine)](https://cg2010studio.com/2012/05/20/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%A9%9F%E5%99%A8-support-vector-machine/)
 
+### Decision Tree
 
+### Logistic Regression
+
+### Naive Bayes 
+
+## Clustering
+
+### K-Means
+
+* 簡介
+
+對已知的資料 (x1, x2, ... , xn)，劃分成 k 個集合
+
+* 參數
+
+1. k
+2. maxIterations: 指定一個最多要跑的次數
+
+* 目標
+
+* References
