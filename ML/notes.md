@@ -46,3 +46,8 @@ SVM 主要是 binary classifier，如果要解決多類別的問題是，可以�
 * 目標
 
 * References
+
+### Reinforcement Learning
+
+* 不容易告訴機器你想要的是什麼
+* 常見應用：廣告系統
