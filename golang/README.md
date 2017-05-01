@@ -6,3 +6,8 @@
 -[Go Tooling in Action](https://www.youtube.com/watch?v=uBjoTxosSys)
     - JustForFun 系列的影片，介紹一系列的 go tools
     - go list 有很多參數和隱藏用法可以看引用的路徑、名稱 ... etc
+        - `go list -f '{{ .Name }}'`
+    - go doc fmt: show fmt go doc in console
+    - debug
+    - benchmark
+    - pprof
