@@ -11,3 +11,8 @@
     - debug
     - benchmark
     - pprof
+- [A Short Guide to Mastering Strings in Golang](https://mymemorysucks.wordpress.com/2017/05/03/a-short-guide-to-mastering-strings-in-golang/)
+    - strings are made of up runes (not bytes)
+    - characters/runes in a string are of variable length
+    - ranging over a string with a for loop returns runes
+    - strings are immutable while a []rune slice is mutable
