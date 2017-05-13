@@ -1,0 +1,2 @@
+- [awless](https://github.com/wallix/awless)
+    - awless --aws-profile [profile] ls buckets: show all buckets in one region
