@@ -20,3 +20,5 @@
 - [Building a Go web application deployment tool chain with Nginx, Gulp and Supervisor](https://medium.com/dev-bits/building-a-go-web-application-deployment-tool-chain-with-nginx-gulp-and-supervisor-bef6a5d454b9)
     - Gulp for minitoring the code change and update the binary
     - Supervisord for managing the process
+- [go-web-workshop](https://github.com/campoy/go-web-workshop)
+    - Francesc Campoy 的 golang web workshop + GCP
