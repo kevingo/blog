@@ -16,3 +16,7 @@
     - characters/runes in a string are of variable length
     - ranging over a string with a for loop returns runes
     - strings are immutable while a []rune slice is mutable
+- [golang official docker hub](https://hub.docker.com/_/golang/)
+- [Building a Go web application deployment tool chain with Nginx, Gulp and Supervisor](https://medium.com/dev-bits/building-a-go-web-application-deployment-tool-chain-with-nginx-gulp-and-supervisor-bef6a5d454b9)
+    - Gulp for minitoring the code change and update the binary
+    - Supervisord for managing the process
