@@ -22,3 +22,6 @@
     - Supervisord for managing the process
 - [go-web-workshop](https://github.com/campoy/go-web-workshop)
     - Francesc Campoy 的 golang web workshop + GCP
+- [Channels](https://golang.org/doc/effective_go.html#channels)
+    - Buffered V.S. Unbuffered channel
+- [Pointers](https://golangbot.com/pointers/)
