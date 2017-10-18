@@ -28,8 +28,25 @@
 - 為什麼 batch_size 較大時，速度會較快？
 	- 因為使用了平行運算
 	- 但是 batch_size 太大，GPU 也無法負荷
+	- 而且 batch_size 太大，例如設定成 full-batch，則在訓練時，很容易卡在 local minimum 的位置無法再前進
+- 有 batch 時，GPU 是如何平行加速？
 
 ![mini_batch_speed](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/mini_batch_speed.png)
+
+### ML Lecture 10: Convolutional Neural Network
+
+- 一般的 neural network 其實也可以用來做影像辨識，但是即使是很小張的圖片，參數也會過多
+	- 100 * 100 piexl 的圖片，有 100 * 100 * 3 pixel，input vector 有 30000 維，第一層有 1000 個 nerual，就有 30000 * 1000 個參數
+- CNN 是透過人類對影像的 prior knowledge，拿掉 DNN 的一些參數，就變成 CNN
+- 如何縮減參數？
+	- 每個 neural 如果是偵測圖片某個小的特徵，不需要看整張圖才會知道 (用 convolution)
+		- EX: 偵測鳥嘴，只要有某個 "尖銳" 的特徵出現即可，不需要連接整張圖
+	- 不同圖片偵測相同特徵時，該特徵可能會出現在圖片不同位置，此時只需要一個 neural 即可，不需要多個 neural (用 convolution)
+		- EX: 圖片左上的鳥嘴和圖片中間的鳥嘴用同一個 neural 判別即可
+	- Image 可以做 subsampling，不影響對圖片的理解 (用 max pooling)
+- CNN 架構如下：
+
+![cnn architecture](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/cnn-architecture.png)
 
 ## Classification
 
