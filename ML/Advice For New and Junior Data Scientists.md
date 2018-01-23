@@ -1,6 +1,6 @@
 ## [Advice For New and Junior Data Scientists](https://medium.com/@rchang/advice-for-new-and-junior-data-scientists-2ab02396cf5b) 閱讀筆記
 
-Robert Chang 是目前在 Airbnb 工作的資深資料科學家(senior data scientist)，以下是是我閱讀他所撰寫的 [Advice For New and Junior Data Scientists](https://medium.com/@rchang/advice-for-new-and-junior-data-scientists-2ab02396cf5b) 的筆記。
+Robert Chang 是目前在 Airbnb 工作的資深資料科學家(senior data scientist)，以下是我閱讀他所撰寫的 [Advice For New and Junior Data Scientists](https://medium.com/@rchang/advice-for-new-and-junior-data-scientists-2ab02396cf5b) 的筆記。
 
 這篇文章是寫給那些已經進入資料科學相關工作，但還只是剛剛起步的人。
 
@@ -23,7 +23,7 @@ Robert Chang 是目前在 Airbnb 工作的資深資料科學家(senior data scie
 - 確定學習大綱，並且由相關領域專家來檢驗這份綱要。
     - 作者也提供了學習他在學習 Python 的[大綱](https://github.com/robert8138/python-deliberate-practice)
 - 建立大綱後，依照以下步驟進行實作
-    - Practice Repeatedly：反覆練習，熟悉相關語法及套件
+    - Practice Repeatedly：反覆練習，熟悉相關語法及套件
     - Create Feedback Loop：找機會看看別人的程式碼，嘗試重構或修改小的 bug
     - Learn By Chunking and Recalling：寫下每週紀錄，用來回憶與消化
 
@@ -34,12 +34,12 @@ Robert Chang 是目前在 Airbnb 工作的資深資料科學家(senior data scie
 
 ### Teaching And Evangelizing
 
-- 教學相長，透過傳授知識的過程，確保自己了解知識的核心概念。
+- 教學相長，透過傳授知識的過程，確保自己了解知識的核心概念。
 - 教學是檢驗自己對知識的理解程度，學到有價值的東西後，記得與他人分享，不必只想著要創造新的軟體，解釋目前工具如何運作也是很有價值。
 
 ### At Step K, Think About Your Step K+1
 
-- 對於現狀永遠保持不滿足，覺得事情可以更好，可以得到改善，並思考對應的方法。
+- 對於現狀永遠保持不滿足，覺得事情可以更好，可以得到改善，並思考對應的方法。
 
 ### Parting Thoughts: You And Your Work
 
