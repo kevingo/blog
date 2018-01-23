@@ -1,4 +1,4 @@
-[Advice For New and Junior Data Scientists](https://medium.com/@rchang/advice-for-new-and-junior-data-scientists-2ab02396cf5b) 閱讀筆記
+## [Advice For New and Junior Data Scientists](https://medium.com/@rchang/advice-for-new-and-junior-data-scientists-2ab02396cf5b) 閱讀筆記
 
 Robert Chang 是目前在 Airbnb 工作的資深資料科學家(senior data scientist)，以下是是我閱讀他所撰寫的 [Advice For New and Junior Data Scientists](https://medium.com/@rchang/advice-for-new-and-junior-data-scientists-2ab02396cf5b) 的筆記。
 
