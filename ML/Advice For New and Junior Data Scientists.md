@@ -30,7 +30,7 @@ Robert Chang 是目前在 Airbnb 工作的資深資料科學家(senior data scie
 ### Partnering With Experienced Data Scientists
 
 - 成功的人不會羞愧於自己在某方面的無知，而是經常地尋求他人的回饋
-- 作者經由揭露自己在「如何將機器學習運用於正式上線環境中」了解甚少，得到了相當寶貴的回饋
+- 作者經由揭露自己在「如何將機器學習運用於正式上線環境中」了解甚少的訊息給團隊成員，進而得到了相當寶貴的回饋(相關回饋內容可以參考原文)
 
 ### Teaching And Evangelizing
 
