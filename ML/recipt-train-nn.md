@@ -5,15 +5,17 @@
 因此，我想如果在我蓋滿塵土的部落格上，將 tweet 上所述擴展成一個主題，應該會是一件有趣的事情。然而，與其列出一些常見的錯誤一些常見的錯誤或深入分析他們，不如我想更深入探討如何避免發生這些錯誤 (或是快速的修正它們)。而其中的關鍵是遵循某個特定的流程，就我所知，目前並沒有人將這樣的資訊完整的記錄下來。讓我們開始吧。
 
 ### 1) Neural net training is a leaky abstraction
-It is allegedly easy to get started with training neural nets. Numerous libraries and frameworks take pride in displaying 30-line miracle snippets that solve your data problems, giving the (false) impression that this stuff is plug and play. It’s common see things like:
+
+有一種說法是開始訓練神經網路是很容易的。許多書籍和框架都自豪的顯示出可以用 30 行左右的神奇的程式碼來解決你的問題，這帶給大眾一個錯誤的印象，以為訓練神經網路是隨插即用，我們經常可以看到下面的程式碼片段：
+
 
 ```python
->>> your_data = # plug your awesome dataset here
+>>> your_data = # 帶入你神奇的資料
 >>> model = SuperCrossValidator(SuperDuper.fit, your_data, ResNet50, SGDOptimizer)
-# conquer world here
+# 接著你就戰勝世界了
 ```
 
-These libraries and examples activate the part of our brain that is familiar with standard software - a place where clean APIs and abstractions are often attainable. Requests library to demonstrate:
+這些函式庫和範例讓我們激起了對於標準軟體設計的部分 - 一個簡潔的 API 設定與乾淨的抽象層是很容易達到的。比如 Requests 函式庫展示了這樣的能力：
 
 ```python
 >>> r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
@@ -21,7 +23,7 @@ These libraries and examples activate the part of our brain that is familiar wit
 200
 ```
 
-That’s cool! A courageous developer has taken the burden of understanding query strings, urls, GET/POST requests, HTTP connections, and so on from you and largely hidden the complexity behind a few lines of code. This is what we are familiar with and expect. Unfortunately, neural nets are nothing like that. They are not “off-the-shelf” technology the second you deviate slightly from training an ImageNet classifier. I’ve tried to make this point in my post “Yes you should understand backprop” by picking on backpropagation and calling it a “leaky abstraction”, but the situation is unfortunately much more dire. Backprop + SGD does not magically make your network work. Batch norm does not magically make it converge faster. RNNs don’t magically let you “plug in” text. And just because you can formulate your problem as RL doesn’t mean you should. If you insist on using the technology without understanding how it works you are likely to fail. Which brings me to…
+這很酷！一個勇敢的開發者已經理解了查詢字串、url、GET/POST 請求、HTTP 連線等資訊，並在相當大程度上隱藏了那幾行程式碼背後的複雜度。這剛好是我們熟悉且期待的。但不幸的是，神經網路並不是這樣的。他並不是一個 "現成" 的技術，與你訓練一個 ImageNet 的分類器不同。我嘗試在我的文章 "是的，你應該理解反向傳遞" 中，透過反向傳播的範例說明這一部分，並稱其為 "抽象漏洞"，但不幸的，這問題更加嚴重。反向傳遞加上隨機梯度下降並不會神奇的讓你的網路訓練正常，Batch Normalization 也不會讓網路收斂的更快。RNN 不會讓你的文字資料神奇的 "嵌入" 網路中，而僅僅因為你的問題可以透過增強式學習來建模，但不表示你應該如此做。如果你堅持使用該技術，但不去了解其運作原理，你非常有可能會失敗。這讓我想到 ...
 
 ### 2) Neural net training fails silently
 When you break or misconfigure code you will often get some kind of an exception. You plugged in an integer where something expected a string. The function only expected 3 arguments. This import failed. That key does not exist. The number of elements in the two lists isn’t equal. In addition, it’s often possible to create unit tests for a certain functionality.
