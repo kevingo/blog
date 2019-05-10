@@ -25,15 +25,16 @@
 
 這很酷！一個勇敢的開發者已經理解了查詢字串、url、GET/POST 請求、HTTP 連線等資訊，並在相當大程度上隱藏了那幾行程式碼背後的複雜度。這剛好是我們熟悉且期待的。但不幸的是，神經網路並不是這樣的。他並不是一個 "現成" 的技術，與你訓練一個 ImageNet 的分類器不同。我嘗試在我的文章 "是的，你應該理解反向傳遞" 中，透過反向傳播的範例說明這一部分，並稱其為 "抽象漏洞"，但不幸的，這問題更加嚴重。反向傳遞加上隨機梯度下降並不會神奇的讓你的網路訓練正常，Batch Normalization 也不會讓網路收斂的更快。RNN 不會讓你的文字資料神奇的 "嵌入" 網路中，而僅僅因為你的問題可以透過增強式學習來建模，但不表示你應該如此做。如果你堅持使用該技術，但不去了解其運作原理，你非常有可能會失敗。這讓我想到 ...
 
-### 2) Neural net training fails silently
+### 2) 訓練神經網路會悄悄的失敗
 
-When you break or misconfigure code you will often get some kind of an exception. You plugged in an integer where something expected a string. The function only expected 3 arguments. This import failed. That key does not exist. The number of elements in the two lists isn’t equal. In addition, it’s often possible to create unit tests for a certain functionality.
+當你的程式碼寫錯或是設定有錯誤時，通常會得到一些例外的錯誤訊息。本來應該是字串，你輸入了一個整數、某個函式只預期接收三個參數、引用失敗、某個鍵值不存在、兩個 list 中的元素數量不相等。而且，我們通常可以針對特定的功能建立單元測試。
 
-This is just a start when it comes to training neural nets. Everything could be correct syntactically, but the whole thing isn’t arranged properly, and it’s really hard to tell. The “possible error surface” is large, logical (as opposed to syntactic), and very tricky to unit test. For example, perhaps you forgot to flip your labels when you left-right flipped the image during data augmentation. Your net can still (shockingly) work pretty well because your network can internally learn to detect flipped images and then it left-right flips its predictions. Or maybe your autoregressive model accidentally takes the thing it’s trying to predict as an input due to an off-by-one bug. Or you tried to clip your gradients but instead clipped the loss, causing the outlier examples to be ignored during training. Or you initialized your weights from a pretrained checkpoint but didn’t use the original mean. Or you just screwed up the settings for regularization strengths, learning rate, its decay rate, model size, etc. Therefore, your misconfigured neural net will throw exceptions only if you’re lucky; Most of the time it will train but silently work a bit worse.
+當我們在訓練神經網路時，解決這些問題只是訓練的開始。在語法上一切正確，但很有可能在整個訓練還是出了問題，而且很難解釋清楚為什麼。"可能錯誤的面向" 非常大，邏輯 (跟語法無關) 面的問題，同時很難進行單元測試。舉例來說，也許你在做資料增量時將圖片進行左右翻轉，但資料的標籤忘了進行同步的處理。你的神經網路依舊可以 (令人震驚的) 進行訓練，因為網路可以在內部學習翻轉的圖片，然後在預測的結果上進行了左右翻轉。或是你的自迴歸模型因為不小心將預測的對象當成輸入。或是你在訓練時想要調整梯度，但不小心改到損失函數，導致異常的樣本在訓練時期被忽略。或是你使用預訓練的模型來初始化參數，但沒有使用原始的平均值來對資料進行標準化。或是你只是用錯了正規化的權重、學習率、衰減率、模型的大小等。因此，錯誤的設定只會在你運氣好的時候得到例外的錯誤訊息，大多時候模型依舊會進行訓練，但默默的輸出看起來不太好的結果。
 
-As a result, (and this is reeaally difficult to over-emphasize) a “fast and furious” approach to training neural networks does not work and only leads to suffering. Now, suffering is a perfectly natural part of getting a neural network to work well, but it can be mitigated by being thorough, defensive, paranoid, and obsessed with visualizations of basically every possible thing. The qualities that in my experience correlate most strongly to success in deep learning are patience and attention to detail.
+因此，(這很難不強調其重要性) "快速且激烈" 訓練神經網路並沒有辦法起到作用並達到失敗。失敗的過程是在訓練一個良好的神經網路相當自然的部份，但這樣的過程可以透過謹慎、某種程度的視覺化來降低其失敗的風險。在我的經驗中，耐心和對於細節的注意是訓練神經網路最重要的關鍵。
 
 ## The recipe
+
 In light of the above two facts, I have developed a specific process for myself that I follow when applying a neural net to a new problem, which I will try to describe. You will see that it takes the two principles above very seriously. In particular, it builds from simple to complex and at every step of the way we make concrete hypotheses about what will happen and then either validate them with an experiment or investigate until we find some issue. What we try to prevent very hard is the introduction of a lot of “unverified” complexity at once, which is bound to introduce bugs/misconfigurations that will take forever to find (if ever). If writing your neural net code was like training one, you’d want to use a very small learning rate and guess and then evaluate the full test set after every iteration.
 
 ### 1. Become one with the data
