@@ -33,9 +33,9 @@
 
 因此，(這很難不強調其重要性) "快速且激烈" 訓練神經網路並沒有辦法起到作用並達到失敗。失敗的過程是在訓練一個良好的神經網路相當自然的部份，但這樣的過程可以透過謹慎、某種程度的視覺化來降低其失敗的風險。在我的經驗中，耐心和對於細節的注意是訓練神經網路最重要的關鍵。
 
-## The recipe
+## 秘訣
 
-In light of the above two facts, I have developed a specific process for myself that I follow when applying a neural net to a new problem, which I will try to describe. You will see that it takes the two principles above very seriously. In particular, it builds from simple to complex and at every step of the way we make concrete hypotheses about what will happen and then either validate them with an experiment or investigate until we find some issue. What we try to prevent very hard is the introduction of a lot of “unverified” complexity at once, which is bound to introduce bugs/misconfigurations that will take forever to find (if ever). If writing your neural net code was like training one, you’d want to use a very small learning rate and guess and then evaluate the full test set after every iteration.
+基於以上兩個狀況，我建立了一個開發神經網路的流程，讓我能夠在新問題上運用神經網路來解決，底下我會試著介紹。你會發現，我特別重視上述兩個狀況。特別來說，這個流程遵循從簡單到複雜的規則，而且在每一個步驟上，我們建立具體的假設，並且透過實驗來驗證它，直到我們發現問題為止。我們要極力避免的狀況是一次引入太多 "未經驗證" 的複雜狀況，這會導致我們要花許多精力在尋找臭蟲/錯誤的設定上。如果撰寫你的神經網路程式就像在進行模型訓練一樣，我們會使用非常小的學速率進行猜測，並且在每個訓練回合中，在完整的測試資料集上進行驗證。
 
 ### 1. Become one with the data
 The first step to training a neural net is to not touch any neural net code at all and instead begin by thoroughly inspecting your data. This step is critical. I like to spend copious amount of time (measured in units of hours) scanning through thousands of examples, understanding their distribution and looking for patterns. Luckily, your brain is pretty good at this. One time I discovered that the data contained duplicate examples. Another time I found corrupted images / labels. I look for data imbalances and biases. I will typically also pay attention to my own process for classifying the data, which hints at the kinds of architectures we’ll eventually explore. As an example - are very local features enough or do we need global context? How much variation is there and what form does it take? What variation is spurious and could be preprocessed out? Does spatial position matter or do we want to average pool it out? How much does detail matter and how far could we afford to downsample the images? How noisy are the labels?
