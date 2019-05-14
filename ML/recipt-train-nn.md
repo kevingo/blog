@@ -37,12 +37,13 @@
 
 基於以上兩個狀況，我建立了一個開發神經網路的流程，讓我能夠在新問題上運用神經網路來解決，底下我會試著介紹。你會發現，我特別重視上述兩個狀況。特別來說，這個流程遵循從簡單到複雜的規則，而且在每一個步驟上，我們建立具體的假設，並且透過實驗來驗證它，直到我們發現問題為止。我們要極力避免的狀況是一次引入太多 "未經驗證" 的複雜狀況，這會導致我們要花許多精力在尋找臭蟲/錯誤的設定上。如果撰寫你的神經網路程式就像在進行模型訓練一樣，我們會使用非常小的學速率進行猜測，並且在每個訓練回合中，在完整的測試資料集上進行驗證。
 
-### 1. Become one with the data
-The first step to training a neural net is to not touch any neural net code at all and instead begin by thoroughly inspecting your data. This step is critical. I like to spend copious amount of time (measured in units of hours) scanning through thousands of examples, understanding their distribution and looking for patterns. Luckily, your brain is pretty good at this. One time I discovered that the data contained duplicate examples. Another time I found corrupted images / labels. I look for data imbalances and biases. I will typically also pay attention to my own process for classifying the data, which hints at the kinds of architectures we’ll eventually explore. As an example - are very local features enough or do we need global context? How much variation is there and what form does it take? What variation is spurious and could be preprocessed out? Does spatial position matter or do we want to average pool it out? How much does detail matter and how far could we afford to downsample the images? How noisy are the labels?
+### 1. 徹底了解你的資料
 
-In addition, since the neural net is effectively a compressed/compiled version of your dataset, you’ll be able to look at your network (mis)predictions and understand where they might be coming from. And if your network is giving you some prediction that doesn’t seem consistent with what you’ve seen in the data, something is off.
+訓練神經網路的第一步不是開始撰寫任何程式碼，而是徹底了解你的資料。這個步驟相當關鍵，我喜歡花費大量的時間 (以小時計) 瀏覽數千筆資料，瞭解資料的分佈並尋找規則。幸運的是，你的大腦在這方面是很擅長的。有一次我發現重複的資料、另一次我則找到錯誤的圖片/標籤。我會尋找資料的不平衡或偏誤。我通常也會觀察自己如何針對資料進行分類，這個過程會提示最後我們要使用的架構為何。舉例來說，我們需要局部的特徵還是全局的上下文？資料有多大的變化？這些變化透過什麼形式呈現？哪些變化是假的，可以處理掉？空間位置是否重要，或是我們想要將其平均掉？細節有多重要，而我們可以接受多大程度的取樣？標籤有多少雜訊？
 
-Once you get a qualitative sense it is also a good idea to write some simple code to search/filter/sort by whatever you can think of (e.g. type of label, size of annotations, number of annotations, etc.) and visualize their distributions and the outliers along any axis. The outliers especially almost always uncover some bugs in data quality or preprocessing.
+此外，由於神經網路實際上是資料的壓縮/編譯過後的版本，你必須要看看那些預測錯誤的資料，瞭解預測不一致的原因為何。如果你的神經網路給你的預測結果和你在資料中觀察到的不一致時，代表一定漏掉一些東西了。
+
+一旦你得到一些定性的感覺後，開始撰寫一些簡單的程式碼來搜尋/過濾/排序任何你想得到的資料是一個很好的主意 (例如：標籤的種類、數量或大小等)，同時透過視覺化來檢視其分佈，並且找出沿著任何座標上的異常值。異常值特別能展現出資料的品質或前處理上的一些錯誤。
 
 ### 2. Set up the end-to-end training/evaluation skeleton + get dumb baselines
 Now that we understand our data can we reach for our super fancy Multi-scale ASPP FPN ResNet and begin training awesome models? For sure no. That is the road to suffering. Our next step is to set up a full training + evaluation skeleton and gain trust in its correctness via a series of experiments. At this stage it is best to pick some simple model that you couldn’t possibly have screwed up somehow - e.g. a linear classifier, or a very tiny ConvNet. We’ll want to train it, visualize the losses, any other metrics (e.g. accuracy), model predictions, and perform a series of ablation experiments with explicit hypotheses along the way.
