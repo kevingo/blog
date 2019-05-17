@@ -45,12 +45,13 @@
 
 一旦你得到一些定性的感覺後，開始撰寫一些簡單的程式碼來搜尋/過濾/排序任何你想得到的資料是一個很好的主意 (例如：標籤的種類、數量或大小等)，同時透過視覺化來檢視其分佈，並且找出沿著任何座標上的異常值。異常值特別能展現出資料的品質或前處理上的一些錯誤。
 
-### 2. Set up the end-to-end training/evaluation skeleton + get dumb baselines
-Now that we understand our data can we reach for our super fancy Multi-scale ASPP FPN ResNet and begin training awesome models? For sure no. That is the road to suffering. Our next step is to set up a full training + evaluation skeleton and gain trust in its correctness via a series of experiments. At this stage it is best to pick some simple model that you couldn’t possibly have screwed up somehow - e.g. a linear classifier, or a very tiny ConvNet. We’ll want to train it, visualize the losses, any other metrics (e.g. accuracy), model predictions, and perform a series of ablation experiments with explicit hypotheses along the way.
+### 2. 建立完整的訓練/評估框架 + 取得基準
 
-Tips & tricks for this stage:
+當我們了解資料之後，就可以開始設計超級強大的 Multi-scale ASPP FPN ResNet 模型了嗎？當然不是，這一條道路上是充滿崎嶇的。我們的下一步是建立一個完整的訓練 + 評估的框架，並且透過一系列的實驗來驗證其正確性。在這個階段最好挑選一些簡單的模型，例如：線性分類器或非常小的 ConvNet。我們希望透過這樣的方法進行訓練、始覺化損失或其他的指標 (例如：準確率)、模型預測的結果，並在這樣的過程透過實驗來驗證我們一系列的假設。
 
-- fix random seed. Always use a fixed random seed to guarantee that when you run the code twice you will get the same outcome. This removes a factor of variation and will help keep you sane.
+在這個階段的一些秘訣 & 技巧：
+
+- 設定相同的隨機種子來讓你每次執行相同程式碼時，可以得到相同的結果。這消除了不確定的因素，並且讓你保持清醒。
 - simplify. Make sure to disable any unnecessary fanciness. As an example, definitely turn off any data augmentation at this stage. Data augmentation is a regularization strategy that we may incorporate later, but for now it is just another opportunity to introduce some dumb bug.
 - add significant digits to your eval. When plotting the test loss run the evaluation over the entire (large) test set. Do not just plot test losses over batches and then rely on smoothing them in Tensorboard. We are in pursuit of correctness and are very willing to give up time for staying sane.
 - verify loss @ init. Verify that your loss starts at the correct loss value. E.g. if you initialize your final layer correctly you should measure -log(1/n_classes) on a softmax at initialization. The same default values can be derived for L2 regression, Huber losses, etc.
