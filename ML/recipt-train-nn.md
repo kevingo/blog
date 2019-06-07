@@ -65,8 +65,10 @@
 - 使用反向傳遞來繪製相依性。你的深度學習程式碼經常會包含複雜的、向量化和廣播的操作。我遇到一個經常發生的錯誤是人們自己弄錯了 (例如他們在某處使用 view 而不是 transpose/permute)，並且無意間混合了批量的維度。令人失望的是，你的神經網路通常還是可以正常的訓練，因為它會學著忽略該筆錯誤的資料。檢查這種錯誤 (和其他相關的問題) 的其中一種方法是，將你的損失值 (loss) 設定為特定值，例如樣本 i 的所有輸出的總和，執行反向傳遞，確保你僅僅會在第 i 個輸入時會得到非零的梯度值。類似的策略也可以用在，例如說驗證你的自迴歸模型在時間 t 時，僅依賴於 1 ... t-1。更一般來說來說，梯度提供你在網路中什麼東西互相依賴的資訊，這對於找出臭蟲來說相當有用。
 - 一般化特例。這一點更像是一個撰寫程式的技巧，我經常看到有許多人為了想要寫出一個非常通用的函式而產生 bug。而我的做法是會先寫一個專門用來解決目前工作或問題的函式，驗證它是正確無誤，之後再擴展到更通用的版本。這在撰寫以向量為主的程式碼時相當適用，一開始我會寫出一個都是用 for 迴圈來計算的版本，之後再修改為以向量計算為主的版本。
 
-### 3. Overfit
-At this stage we should have a good understanding of the dataset and we have the full training + evaluation pipeline working. For any given model we can (reproducibly) compute a metric that we trust. We are also armed with our performance for an input-independent baseline, the performance of a few dumb baselines (we better beat these), and we have a rough sense of the performance of a human (we hope to reach this). The stage is now set for iterating on a good model.
+### 3. 過擬合
+
+到了這個階段，我們應該對資料有很深入的理解，並且有一個完整的訓練 + 評估的工作流程。對於任何給定的模型，我們可以 (重複) 計算出一個可以信任的指標。我們同樣會擁有一個獨立於輸入的表現作為效能的基準，也會有一些基本的基準 (我們的模型最好能夠打敗這些基準)，而我們對於人類的性能有一個粗略的感覺 (希望能夠達到這一點)，現在我們已經為迭代模型做好準備了。
+
 
 The approach I like to take to finding a good model has two stages: first get a model large enough that it can overfit (i.e. focus on training loss) and then regularize it appropriately (give up some training loss to improve the validation loss). The reason I like these two stages is that if we are not able to reach a low error rate with any model at all that may again indicate some issues, bugs, or misconfiguration.
 
