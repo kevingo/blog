@@ -69,8 +69,7 @@
 
 到了這個階段，我們應該對資料有很深入的理解，並且有一個完整的訓練 + 評估的工作流程。對於任何給定的模型，我們可以 (重複) 計算出一個可以信任的指標。我們同樣會擁有一個獨立於輸入的表現作為效能的基準，也會有一些基本的基準 (我們的模型最好能夠打敗這些基準)，而我們對於人類的性能有一個粗略的感覺 (希望能夠達到這一點)，現在我們已經為迭代模型做好準備了。
 
-
-The approach I like to take to finding a good model has two stages: first get a model large enough that it can overfit (i.e. focus on training loss) and then regularize it appropriately (give up some training loss to improve the validation loss). The reason I like these two stages is that if we are not able to reach a low error rate with any model at all that may again indicate some issues, bugs, or misconfiguration.
+尋找一個好的模型分為兩個階段：首先，訓練一個足夠大的模型使其容易過擬合 (即關注在降低訓練的損失上)，接著嘗試正規化 (放棄訓練損失，改善驗證資料集的損失值)。我喜歡這兩階段的原因在於，如果我不能降低錯誤率時，那代表一定有一些問題、bug 或錯誤的配置。
 
 A few tips & tricks for this stage:
 
