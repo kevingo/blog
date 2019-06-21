@@ -75,7 +75,7 @@
 
 - 挑選模型。為了達到良好的訓練損失，你需要為資料挑選一個合適的架構。而我第一個建議是：不要當一個英雄。我看過許多人渴望變的瘋狂與富有創意，把神經網路的架構像樂高積木一樣堆疊成各式各樣的架構。在專案的早期，盡量避免這樣做。我總是建議人們去找尋最相關的論文，複製貼上他們最簡單的架構，就可以得到很好的效能。舉例來說，如果你打算進行圖片分類，僅僅複製 ResNet-50 來作為你第一次食做的模型，你可以在之後針對模型進行客製化，然後超越其原本的效能。
 - adam 是很安全的選擇。在設定基準的早期階段，我喜歡使用 adam，學習率為 3e-4。根據我的經驗，adam 對於超參數的的選擇來說更為寬容，包括錯誤的學習率。對於卷積神經網路來說，一個調整良好的 SGD 幾乎可以表現得比 Adam 來的好，不過其最佳學習率的區間要窄得多，而且是針對特定問題而言 (注意：如果你使用 RNN 或相關序列模型時，那使用 Adam 是更為常見的，在專案初期，再次提醒，不要逞英雄，按照原始的論文實作即可)。
-- complexify only one at a time. If you have multiple signals to plug into your classifier I would advise that you plug them in one by one and every time ensure that you get a performance boost you’d expect. Don’t throw the kitchen sink at your model at the start. There are other ways of building up complexity - e.g. you can try to plug in smaller images first and make them bigger later, etc.
+- 每次只增加一個複雜度。如果你有多個想要在分類器上嘗試的想法，建議你一個一個的嘗試，確保每次都有達到效能增加，不要在一開始把所有的東西都放進去。還有其他會增加複雜度的方法，例如：一開始先使用比較小的圖片，之後再將其放大等。
 - do not trust learning rate decay defaults. If you are re-purposing code from some other domain always be very careful with learning rate decay. Not only would you want to use different decay schedules for different problems, but - even worse - in a typical implementation the schedule will be based current epoch number, which can vary widely simply depending on the size of your dataset. E.g. ImageNet would decay by 10 on epoch 30. If you’re not training ImageNet then you almost certainly do not want this. If you’re not careful your code could secretely be driving your learning rate to zero too early, not allowing your model to converge. In my own work I always disable learning rate decays entirely (I use a constant LR) and tune this all the way at the very end.
 
 ### 4. Regularize
