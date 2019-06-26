@@ -78,8 +78,9 @@
 - 每次只增加一個複雜度。如果你有多個想要在分類器上嘗試的想法，建議你一個一個的嘗試，確保每次都有達到效能增加，不要在一開始把所有的東西都放進去。還有其他會增加複雜度的方法，例如：一開始先使用比較小的圖片，之後再將其放大等。
 - 不要相信預設的學習率衰減方式。如果你將某個程式碼運用在新的領域時，要隨時注意學習率的衰減方式。不僅僅是針對不同的問題應該使用不同學習速率衰減的方式，更要注意的是，在特定的問題上，衰減的方式應該基於目前學習的 epoch 數，而這會基於你目前訓練資料的大小。舉例來說，ImageNet 的學習速率衰減的方式會在第 30 個 epoch 時衰減 10 倍。如果你不是訓練 ImageNet，那最好不要這樣設定。如果你不小心讓學習速率衰減的太快，模型可能沒辦法收斂。以我自己的經驗來說，我在一開始不會使用衰減的學習速率，而是讓學習速率維持一個常數值，在最後才去調整學習速率的衰減程度。
 
-### 4. Regularize
-Ideally, we are now at a place where we have a large model that is fitting at least the training set. Now it is time to regularize it and gain some validation accuracy by giving up some of the training accuracy. Some tips & tricks:
+### 4. 正規化
+
+理論上，我們現在會有一個足夠大的模型來擬合訓練資料集。現在，是該放棄一些訓練的準確率，對其做正規化來讓驗證資料集的準確率上升了。底下是一些秘訣：
 
 - get more data. First, the by far best and preferred way to regularize a model in any practical setting is to add more real training data. It is a very common mistake to spend a lot engineering cycles trying to squeeze juice out of a small dataset when you could instead be collecting more data. As far as I’m aware adding more data is pretty much the only guaranteed way to monotonically improve the performance of a well-configured neural network almost indefinitely. The other would be ensembles (if you can afford them), but that tops out after ~5 models.
 - data augment. The next best thing to real data is half-fake data - try out more aggressive data augmentation.
