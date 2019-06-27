@@ -83,8 +83,8 @@
 理論上，我們現在會有一個足夠大的模型來擬合訓練資料集。現在，是該放棄一些訓練的準確率，對其做正規化來讓驗證資料集的準確率上升了。底下是一些秘訣：
 
 - 取得更多資料。首先，要正規化一個模型，在實際環境中最好的方法就是搜集更多真實的訓練資料。一個很常見的錯誤是你嘗試透過許多工程的技巧，嘗嘗試從小量的資料中擠出更多的效能，而不是把時間花費在嘗試搜集更多真實的訓練資料上。就我所知，增加更多的資料幾乎是唯一能夠保證提高一個良好配置的神經網路效能的方法。另一種方式是透過 ensemble 的方法 (如果你可以負擔得起使用該方法的話)，但這只有在 ensemble 五個以上的模型時會比較有顯著的效果。
-- 資料增量。除了使用真實資料之外，你還可以嘗試使用某些假資料 - 試著使用更積極的資料增量的方法。
-- creative augmentation. If half-fake data doesn’t do it, fake data may also do something. People are finding creative ways of expanding datasets; For example, domain randomization, use of simulation, clever hybrids such as inserting (potentially simulated) data into scenes, or even GANs.
+- 資料增量。除了使用真實資料之外，你還可以嘗試混合真假資料 - 試著使用更積極的資料增量的方法。
+- 有創意的資料增量方法。如果混合真假資料沒用，你還可以嚐試使用假資料。試著找出一些有創意的方法來建立資料及，比如說，領域隨機、使用模擬資料、甚至是 GAN。
 - pretrain. It rarely ever hurts to use a pretrained network if you can, even if you have enough data.
 - stick with supervised learning. Do not get over-excited about unsupervised pretraining. Unlike what that blog post from 2008 tells you, as far as I know, no version of it has reported strong results in modern computer vision (though NLP seems to be doing pretty well with BERT and friends these days, quite likely owing to the more deliberate nature of text, and a higher signal to noise ratio).
 - smaller input dimensionality. Remove features that may contain spurious signal. Any added spurious input is just another opportunity to overfit if your dataset is small. Similarly, if low-level details don’t matter much try to input a smaller image.
