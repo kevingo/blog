@@ -86,7 +86,7 @@
 - 資料增量。除了使用真實資料之外，你還可以嘗試混合真假資料 - 試著使用更積極的資料增量的方法。
 - 有創意的資料增量方法。如果混合真假資料沒用，你還可以嚐試使用假資料。試著找出一些有創意的方法來建立資料及，比如說，領域隨機、使用模擬資料、甚至是 GAN。
 - 預訓練。如果可以的話，即使你有足夠的資料，可以使用預訓練網路。
-- stick with supervised learning. Do not get over-excited about unsupervised pretraining. Unlike what that blog post from 2008 tells you, as far as I know, no version of it has reported strong results in modern computer vision (though NLP seems to be doing pretty well with BERT and friends these days, quite likely owing to the more deliberate nature of text, and a higher signal to noise ratio).
+- 堅持在監督式學習。不要對非監督式學習抱著太大的期待。不同於 2008 年部落格文章告訴你的內容，就我所知，目前還沒有一個現代化的電腦視覺領域中的非監督學習的網路呈現出好的結果 (儘管在 NLP 的領域上，Bert 模型看起來表現很好，但這可能是因為文字的特性，並且允許較高的訊噪比)。
 - smaller input dimensionality. Remove features that may contain spurious signal. Any added spurious input is just another opportunity to overfit if your dataset is small. Similarly, if low-level details don’t matter much try to input a smaller image.
 - smaller model size. In many cases you can use domain knowledge constraints on the network to decrease its size. As an example, it used to be trendy to use Fully Connected layers at the top of backbones for ImageNet but these have since been replaced with simple average pooling, eliminating a ton of parameters in the process.
 - decrease the batch size. Due to the normalization inside batch norm smaller batch sizes somewhat correspond to stronger regularization. This is because the batch empirical mean/std are more approximate versions of the full mean/std so the scale & offset “wiggles” your batch around more.
