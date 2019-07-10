@@ -88,7 +88,7 @@
 - 預訓練。如果可以的話，即使你有足夠的資料，可以使用預訓練網路。
 - 堅持在監督式學習。不要對非監督式學習抱著太大的期待。不同於 2008 年部落格文章告訴你的內容，就我所知，目前還沒有一個現代化的電腦視覺領域中的非監督學習的網路呈現出好的結果 (儘管在 NLP 的領域上，Bert 模型看起來表現很好，但這可能是因為文字的特性，並且允許較高的訊噪比)。
 - 使用較小的輸入維度。移除可能包含虛假資訊的特徵。當你的資料集很小時，任何有問題的輸入都有可能造成過擬合，同樣的，當低解析度的資料不重要時，嘗試使用較小的輸入圖像。
-- smaller model size. In many cases you can use domain knowledge constraints on the network to decrease its size. As an example, it used to be trendy to use Fully Connected layers at the top of backbones for ImageNet but these have since been replaced with simple average pooling, eliminating a ton of parameters in the process.
+- 縮減模型大小。許多情況下，你可以使用領域知識來降低模型的大小。舉例來說，過去我們經常使用全連結層作為 ImageNet 問題的主幹，但後來我們發現可以使用簡單的 average pooling 來降低模型的參數量。
 - decrease the batch size. Due to the normalization inside batch norm smaller batch sizes somewhat correspond to stronger regularization. This is because the batch empirical mean/std are more approximate versions of the full mean/std so the scale & offset “wiggles” your batch around more.
 - drop. Add dropout. Use dropout2d (spatial dropout) for ConvNets. Use this sparingly/carefully because dropout does not seem to play nice with batch normalization.
 - weight decay. Increase the weight decay penalty.
