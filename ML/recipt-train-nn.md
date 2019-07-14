@@ -91,7 +91,7 @@
 - 縮減模型大小。許多情況下，你可以使用領域知識來降低模型的大小。舉例來說，過去我們經常使用全連結層作為 ImageNet 問題的主幹，但後來我們發現可以使用簡單的 average pooling 來降低模型的參數量。
 - 降低 batch 大小。因為在每個 batch 中的正規化，較小的 batch 尺寸通常具有比較強的正則化。因為每一個 batch 中資料的平均和標準差是全部資料的某種近似的結果，所以 batch 越小時，資料每次 "震盪" 的效果就會越好。
 - 使用 dropout。在卷積神經網路中使用 dropout2d (一種基於空間概念的 dropout)，但請謹慎的使用，因為 dropout 似乎沒辦法在批次正規化中很好的被處理。
-- weight decay. Increase the weight decay penalty.
+- 權重衰減。增加權重衰減的懲罰大小。
 - early stopping. Stop training based on your measured validation loss to catch your model just as it’s about to overfit.
 - try a larger model. I mention this last and only after early stopping but I’ve found a few times in the past that larger models will of course overfit much more eventually, but their “early stopped” performance can often be much better than that of smaller models.
 
