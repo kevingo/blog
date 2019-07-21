@@ -92,8 +92,8 @@
 - 降低 batch 大小。因為在每個 batch 中的正規化，較小的 batch 尺寸通常具有比較強的正則化。因為每一個 batch 中資料的平均和標準差是全部資料的某種近似的結果，所以 batch 越小時，資料每次 "震盪" 的效果就會越好。
 - 使用 dropout。在卷積神經網路中使用 dropout2d (一種基於空間概念的 dropout)，但請謹慎的使用，因為 dropout 似乎沒辦法在批次正規化中很好的被處理。
 - 權重衰減。增加權重衰減的懲罰大小。
-- early stopping. Stop training based on your measured validation loss to catch your model just as it’s about to overfit.
-- try a larger model. I mention this last and only after early stopping but I’ve found a few times in the past that larger models will of course overfit much more eventually, but their “early stopped” performance can often be much better than that of smaller models.
+- 提早結束訓練。根據驗證資料集的損失值來提早結束訓練，可以避免過擬合的情形發生。
+- 嘗試比較大的模型。我在最後，並且是在提早結束訓練之後才提到這個方法，是因為在過去我發現越大的模型越有可能造成過擬合，但透過提早結束訓練的方法，較大的模型表現往往比小的模型來的好。
 
 Finally, to gain additional confidence that your network is a reasonable classifier, I like to visualize the network’s first-layer weights and ensure you get nice edges that make sense. If your first layer filters look like noise then something could be off. Similarly, activations inside the net can sometimes display odd artifacts and hint at problems.
 
