@@ -95,7 +95,7 @@
 - 提早結束訓練。根據驗證資料集的損失值來提早結束訓練，可以避免過擬合的情形發生。
 - 嘗試比較大的模型。我在最後，並且是在提早結束訓練之後才提到這個方法，是因為在過去我發現越大的模型越有可能造成過擬合，但透過提早結束訓練的方法，較大的模型表現往往比小的模型來的好。
 
-Finally, to gain additional confidence that your network is a reasonable classifier, I like to visualize the network’s first-layer weights and ensure you get nice edges that make sense. If your first layer filters look like noise then something could be off. Similarly, activations inside the net can sometimes display odd artifacts and hint at problems.
+最後，為了確保你的神經網路已經是一個合理的分類器，我會將網路的第一層視覺化，確保你的訓練過程是有意義的。如果你的第一層網路看起來像雜訊，那可能是某些地方出了問題。同樣的，神經網路中的 activation 函數有時候會發生奇怪的笑我，這可能是你在除錯時的一些線索。
 
 ### 5. Tune
 You should now be “in the loop” with your dataset exploring a wide model space for architectures that achieve low validation loss. A few tips and tricks for this step:
