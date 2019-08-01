@@ -97,10 +97,11 @@
 
 最後，為了確保你的神經網路已經是一個合理的分類器，我會將網路的第一層視覺化，確保你的訓練過程是有意義的。如果你的第一層網路看起來像雜訊，那可能是某些地方出了問題。同樣的，神經網路中的 activation 函數有時候會發生奇怪的笑我，這可能是你在除錯時的一些線索。
 
-### 5. Tune
-You should now be “in the loop” with your dataset exploring a wide model space for architectures that achieve low validation loss. A few tips and tricks for this step:
+### 5. 調整參數
 
-- random over grid search. For simultaneously tuning multiple hyperparameters it may sound tempting to use grid search to ensure coverage of all settings, but keep in mind that it is best to use random search instead. Intuitively, this is because neural nets are often much more sensitive to some parameters than others. In the limit, if a parameter a matters but changing b has no effect then you’d rather sample a more throughly than at a few fixed points multiple times.
+你應該把資料集放在探索更廣闊空間中的循環中，用以降低驗證資料集的損失。一些簡單的秘訣如下：
+
+- 隨機網格搜尋。同時調整多個參數來確保可以覆蓋所有的參數值，聽起來很吸引人，不過我在這邊建議最好可以使用隨機搜尋。直觀上來說，因為神經網路通常對於某些參數會更加敏感。在極端情況下，如果一個參數很重要，但你改變後卻沒有效果，你最好多做幾次採樣，這比起只選幾個固定值來得好。
 
 - hyper-parameter optimization. There is a large number of fancy bayesian hyper-parameter optimization toolboxes around and a few of my friends have also reported success with them, but my personal experience is that the state of the art approach to exploring a nice and wide space of models and hyperparameters is to use an intern :). Just kidding.
 
