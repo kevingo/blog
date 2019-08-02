@@ -103,7 +103,7 @@
 
 - 隨機網格搜尋。同時調整多個參數來確保可以覆蓋所有的參數值，聽起來很吸引人，不過我在這邊建議最好可以使用隨機搜尋。直觀上來說，因為神經網路通常對於某些參數會更加敏感。在極端情況下，如果一個參數很重要，但你改變後卻沒有效果，你最好多做幾次採樣，這比起只選幾個固定值來得好。
 
-- hyper-parameter optimization. There is a large number of fancy bayesian hyper-parameter optimization toolboxes around and a few of my friends have also reported success with them, but my personal experience is that the state of the art approach to exploring a nice and wide space of models and hyperparameters is to use an intern :). Just kidding.
+- 超參數優化。現在有許多花俏的貝氏超參數優化工具可以讓我們使用，而我的一些朋友也有些成功使用的結果，但我個人的經驗是用這些最先進的方法來探索一個更好、更廣的模型或參數可以讓實習生來做 :) 只是開玩笑而已。
 
 ### 6. Squeeze out the juice
 
