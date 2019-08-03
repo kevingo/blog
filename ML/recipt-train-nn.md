@@ -112,6 +112,6 @@
 - ensembles。把模型進行 ensemble 幾乎可以保證再增加 2% 的準確率。如果你在測試時沒辦法承擔計算的成本，請使用暗黑的技巧將自己的知識放到神經網路訓練中。
 - 讓模型繼續訓練。我時常看到人們在驗證資料集的損失看起來趨緩時就停止訓練了。在我的經驗中，神經網路可以長時間的進行訓練，某次在我寒假期間時，我不小心在訓練神經網路的過程離開了，等到我一月回來時，訓練已經到達了目前最好的結果。
 
-### Conclusion
+### 結論
 
-Once you make it here you’ll have all the ingredients for success: You have a deep understanding of the technology, the dataset and the problem, you’ve set up the entire training/evaluation infrastructure and achieved high confidence in its accuracy, and you’ve explored increasingly more complex models, gaining performance improvements in ways you’ve predicted each step of the way. You’re now ready to read a lot of papers, try a large number of experiments, and get your SOTA results. Good luck!
+一但你到了這裡，你就有了成功所有的材料：你對於目前的技術、資料及和問題本身有深度的了解。你設置了完整的訓練/驗證資料集的架構，並且有足夠的信心知道如何達到高的準確率。同時你探索了更複雜的模型，並且在每一步的訓練中，模型都可以按照你預測的方法來進步。現在，可以開始閱讀大量的論文，嘗試大量的實驗來達到目前最棒的結果。祝你好運！
