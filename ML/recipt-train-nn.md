@@ -105,12 +105,13 @@
 
 - 超參數優化。現在有許多花俏的貝氏超參數優化工具可以讓我們使用，而我的一些朋友也有些成功使用的結果，但我個人的經驗是用這些最先進的方法來探索一個更好、更廣的模型或參數可以讓實習生來做 :) 只是開玩笑而已。
 
-### 6. Squeeze out the juice
+### 6. 再擠些東西出來
 
-Once you find the best types of architectures and hyper-parameters you can still use a few more tricks to squeeze out the last pieces of juice out of the system:
+一但你找到最好的架構和超參數，你還是可以透過一些技巧來擠出最後的效能：
 
-- ensembles. Model ensembles are a pretty much guaranteed way to gain 2% of accuracy on anything. If you can’t afford the computation at test time look into distilling your ensemble into a network using dark knowledge.
-- leave it training. I’ve often seen people tempted to stop the model training when the validation loss seems to be leveling off. In my experience networks keep training for unintuitively long time. One time I accidentally left a model training during the winter break and when I got back in January it was SOTA (“state of the art”).
+- ensembles。把模型進行 ensemble 幾乎可以保證再增加 2% 的準確率。如果你在測試時沒辦法承擔計算的成本，請使用暗黑的技巧將自己的知識放到神經網路訓練中。
+- 讓模型繼續訓練。我時常看到人們在驗證資料集的損失看起來趨緩時就停止訓練了。在我的經驗中，神經網路可以長時間的進行訓練，某次在我寒假期間時，我不小心在訓練神經網路的過程離開了，等到我一月回來時，訓練已經到達了目前最好的結果。
 
 ### Conclusion
+
 Once you make it here you’ll have all the ingredients for success: You have a deep understanding of the technology, the dataset and the problem, you’ve set up the entire training/evaluation infrastructure and achieved high confidence in its accuracy, and you’ve explored increasingly more complex models, gaining performance improvements in ways you’ve predicted each step of the way. You’re now ready to read a lot of papers, try a large number of experiments, and get your SOTA results. Good luck!
