@@ -1,3 +1,6 @@
+此篇文章是翻譯自 Tesla 的 AI Director [Andrej Karpathy](http://karpathy.github.io/) 的部落格文章 - [A Recipe for Training Neural Networks](http://karpathy.github.io/2019/04/25/recipe/)，當中有許多寶貴的經驗與秘訣，希望對大家有所幫助。
+
+
 # 一個訓練神經網路的菜單
 
 幾週之前，我發了一則 [tweet](https://twitter.com/karpathy/status/1013244313327681536?lang=en) - "最常見的神經網路錯誤"，列出了一些和訓練神經網路常見的問題。這則 tweet 比我預期得到還要多的回饋 (也包含了某次的[網路研討會 :)](https://www.bigmarker.com/missinglink-ai/PyTorch-Code-to-Unpack-Andrej-Karpathy-s-6-Most-Common-NN-Mistakes))。顯然，許多人在距離了解 "卷積神經網路是這樣運作的" 和 "我們的卷積神經網路已經達到了最佳結果" 這兩者前，還有很大的差距。
