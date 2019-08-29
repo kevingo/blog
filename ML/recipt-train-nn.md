@@ -1,5 +1,6 @@
 此篇文章是翻譯自 Tesla 的 AI Director [Andrej Karpathy](http://karpathy.github.io/) 的部落格文章 - [A Recipe for Training Neural Networks](http://karpathy.github.io/2019/04/25/recipe/)，當中有許多寶貴的經驗與秘訣，希望對大家有所幫助。
 
+---
 
 # 一個訓練神經網路的菜單
 
