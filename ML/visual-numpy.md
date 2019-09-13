@@ -72,65 +72,65 @@ np.array([[1,2],[3,4]])
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-array-create-2d.png)
 
-We can also use the same methods we mentioned above (ones(), zeros(), and random.random()) as long as we give them a tuple describing the dimensions of the matrix we are creating:
+We can also use the same methods we mentioned above (`ones()`, `zeros()`, and `random.random()`) as long as we give them a tuple describing the dimensions of the matrix we are creating:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-ones-zeros-random.png)
 
 ### Matrix Arithmetic
 
 We can add and multiply matrices using arithmetic operators (`+-*/`) if the two matrices are the same size. NumPy handles those as position-wise operations:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-arithmetic.png)
 
 We can get away with doing these arithmetic operations on matrices of different size only if the different dimension is one (e.g. the matrix has only one column or one row), in which case NumPy uses its broadcast rules for that operation:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-broadcast.png)
 
 ### Dot Product
 
 A key distinction to make with arithmetic is the case of [matrix multiplication](https://www.mathsisfun.com/algebra/matrix-multiplying.html) using the dot product. NumPy gives every matrix a `dot()` method we can use to carry-out dot product operations with other matrices:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-dot-product-1.png)
 
 I’ve added matrix dimensions at the bottom of this figure to stress that the two matrices have to have the same dimension on the side they face each other with. You can visualize this operation as looking like this:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-dot-product-2.png)
 
 ### Matrix Indexing
 
 Indexing and slicing operations become even more useful when we’re manipulating matrices:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-indexing.png)
 
 ### Matrix Aggregation
 
 We can aggregate matrices the same way we aggregated vectors:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-aggregation-1.png)
 
 Not only can we aggregate all the values in a matrix, but we can also aggregate across the rows or columns by using the `axis` parameter:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-aggregation-4.png)
 
 ## Transposing and Reshaping
 
 A common need when dealing with matrices is the need to rotate them. This is often the case when we need to take the dot product of two matrices and need to align the dimension they share. NumPy arrays have a convenient property called `T` to get the transpose of a matrix:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-transpose.png)
 
 In more advanced use case, you may find yourself needing to switch the dimensions of a certain matrix. This is often the case in machine learning applications where a certain model expects a certain shape for the inputs that is different from your dataset. NumPy’s `reshape()` method is useful in these cases. You just pass it the new dimensions you want for the matrix. You can pass -1 for a dimension and NumPy can infer the correct dimension based on your matrix:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-reshape.png)
 
 ## Yet More Dimensions
 
 NumPy can do everything we’ve mentioned in any number of dimensions. Its central data structure is called ndarray (N-Dimensional Array) for a reason.
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-3d-array.png)
 
 In a lot of ways, dealing with a new dimension is just adding a comma to the parameters of a NumPy function:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-3d-array-creation.png)
 
 Note: Keep in mind that when you print a 3-dimensional NumPy array, the text output visualizes the array differently than shown here. NumPy’s order for printing n-dimensional arrays is that the last axis is looped over the fastest, while the first is the slowest. Which means that `np.ones((4,3,2))` would be printed as:
 
@@ -160,27 +160,27 @@ And now for the payoff. Here are some examples of the useful things NumPy will h
 
 Implementing mathematical formulas that work on matrices and vectors is a key use case to consider NumPy for. It’s why NumPy is the darling of the scientific python community. For example, consider the mean square error formula that is central to supervised machine learning models tackling regression problems:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/mean-square-error-formula.png)
 
 Implementing this is a breeze in NumPy:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-mean-square-error-formula.png)
 
 The beauty of this is that numpy does not care if `predictions` and `labels` contain one or a thousand values (as long as they’re both the same size). We can walk through an example stepping sequentially through the four operations in that line of code:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-mse-1.png)
 
 Both the predictions and labels vectors contain three values. Which means n has a value of three. After we carry out the subtraction, we end up with the values looking like this:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-mse-2.png)
 
 Then we can square the values in the vector:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-mse-3.png)
 
 Now we sum these values:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-mse-4.png)
 
 Which results in the error value for that prediction and a score for the quality of the model.
 
@@ -192,7 +192,7 @@ Think of all the data types you’ll need to crunch and build models around (spr
 
 - A spreadsheet or a table of values is a two dimensional matrix. Each sheet in a spreadsheet can be its own variable. The most popular abstraction in python for those is the [pandas dataframe](https://jalammar.github.io/gentle-visual-intro-to-data-analysis-python-pandas/), which actually uses NumPy and builds on top of it.
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/excel-to-pandas.png)
 
 ### Audio and Timeseries
 
@@ -200,7 +200,7 @@ Think of all the data types you’ll need to crunch and build models around (spr
 
 Here’s a look at a slice of an audio file:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-audio.png)
 
 The same goes for time-series data (for example, the price of a stock over time).
 
@@ -211,11 +211,11 @@ The same goes for time-series data (for example, the price of a stock over time)
 
 Here’s a look at a slice of an image file:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-grayscale-image.png)
 
 - If the image is colored, then each pixel is represented by three numbers - a value for each of red, green, and blue. In that case we need a 3rd dimension (because each cell can only contain one number). So a colored image is represented by an ndarray of dimensions: (height x width x 3).
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-color-image.png)
 
 ### Language
 
@@ -225,23 +225,23 @@ If we’re dealing with text, the story is a little different. The numeric repre
 
 A model needs to look at a large amount of text before it can numerically represent the anxious words of this warrior poet. We can proceed to have it process a [small dataset](http://mattmahoney.net/dc/textdata.html) and use it to build a vocabulary (of 71,290 words):
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-nlp-vocabulary.png)
 
 The sentence can then be broken into an array of tokens (words or parts of words based on common rules):
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-nlp-tokenization.png)
 
 We then replace each word by its id in the vocabulary table:
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-nlp-ids.png)
 
 These ids still don’t provide much information value to a model. So before feeding a sequence of words to a model, the tokens/words need to be replaced with their embeddings (50 dimension [word2vec embedding](https://jalammar.github.io/illustrated-word2vec/) in this case):
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-nlp-embeddings.png)
 
 You can see that this NumPy array has the dimensions [embedding_dimension x sequence_length]. In practice these would be the other way around, but I’m presenting it this way for visual consistency. For performance reasons, deep learning models tend to preserve the first dimension for batch size (because the model can be trained faster if multiple examples are trained in parallel). This is a clear case where `reshape()` becomes super useful. A model like [BERT](https://jalammar.github.io/illustrated-bert/), for example, would expect its inputs in the shape: [batch_size, sequence_length, embedding_size].
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-nlp-bert-shape.png)
 
 This is now a numeric volume that a model can crunch and do useful things with. I left the other rows empty, but they’d be filled with other examples for the model to train on (or predict).
 
