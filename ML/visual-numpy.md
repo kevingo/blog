@@ -1,3 +1,8 @@
+本文翻譯自 [A Visual Intro to NumPy and Data Representation
+](https://jalammar.github.io/visual-numpy/)，對於從事資料分析或機器學習的朋友來說，numpy 一定是不陌生的 Python 套件。不管是資料處理所使用的 Pandas 、機器學習用到的 scikit-learn 或是 deep learning 所使用的 tensorflow 或 pytorch，底層在資料的操作或儲存上，大多會用到 numpy 來做科學的操作。而本篇文章以圖文並茂的方式詳細說明了 numpy 重要的操作，並且告訴你 numpy 的資料結構如何用來儲存文字、圖片、聲音等重要的資料。同時，numpy 底層使用 C/C++ 和 fortran 來實作，也大幅的提升了多維度資料運算上的效能。希望透過此文的分享，讓大家在學習 numpy 的過程中能夠更加清楚其操作與用途。
+
+---
+
 # A Visual Intro to NumPy and Data Representation
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-array.png)
