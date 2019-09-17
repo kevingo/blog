@@ -15,17 +15,19 @@
 import numpy as np
 ```
 
-## Creating Arrays
+## 建立陣列
 
 We can create a NumPy array (a.k.a. the mighty [ndarray](https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html)) by passing a python list to it and using ` np.array()`. In this case, python creates the array we can see on the right here:
 
+我們可以透過 `np.array()` 並傳入一個 python list 來建立一個 numpy 的陣列 (又叫 [ndarray]((https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html)))，如下所示：
+
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/create-numpy-array-1.png)
 
-There are often cases when we want NumPy to initialize the values of the array for us. NumPy provides methods like ones(), zeros(), and random.random() for these cases. We just pass them the number of elements we want it to generate:
+通常我們希望 numpy 能夠初始化陣列的值，因此它提供了像 ones()、zeros() 和 random.random() 等方法。我們只要傳入希望產生的值即可：
 
 ![image](https://github.com/kevingo/blog/blob/master/screenshot/create-numpy-array-ones-zeros-random.png)
 
-Once we’ve created our arrays, we can start to manipulate them in interesting ways.
+一但我們建立了陣列後，就可以透過有趣的方式盡情的操作他們。
 
 ## Array Arithmetic
 
