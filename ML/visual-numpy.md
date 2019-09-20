@@ -29,27 +29,27 @@ We can create a NumPy array (a.k.a. the mighty [ndarray](https://docs.scipy.org/
 
 一但我們建立了陣列後，就可以透過有趣的方式盡情的操作他們。
 
-## Array Arithmetic
+## 矩陣運算
 
-Let’s create two NumPy arrays to showcase their usefulness. We’ll call them `data` and `ones`:
+讓我們建立兩個 numpy 陣列來展示如何進行運算，分別是 `data` 和 `ones`：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-arrays-example-1.png)
 
-Adding them up position-wise (i.e. adding the values of each row) is as simple as typing `data + ones`:
+將這兩個 numpy 陣列依照位置相加 (即每一行相加)，只要輸入 `data + ones` 即可：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-arrays-adding-1.png)
 
-When I started learning such tools, I found it refreshing that an abstraction like this makes me not have to program such a calculation in loops. It’s a wonderful abstraction that allows you to think about problems at a higher level.
+當我開始學習這個工具後，我發現這樣抽象的思考讓我不用透過類似迴圈的方式來進行計算，而這樣的方式可以讓我透過更高層次的角度來思考問題。
 
-And it’s not only addition that we can do this way:
+而除了相加之外，我們還可以進行以下的操作：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-array-subtract-multiply-divide.png)
 
-There are often cases when we want carry out an operation between an array and a single number (we can also call this an operation between a vector and a scalar). Say, for example, our array represents distance in miles and we want to convert it to kilometers. We simply say `data * 1.6`:
+通常的情況下，我們會希望一個陣列可以和單一數字進行運算 (即向量和純量之間進行運算)。比如說，陣列中的數字是以英里為單位的距離，而我們希望將其轉換為公里，只需要透過 `data * 1.6` 即可：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-array-broadcast.png)
 
-See how NumPy understood that operation to mean that the multiplication should happen with each cell? That concept is called *broadcasting*, and it’s very useful.
+看到 numpy 是如何處理這樣的操作了嗎？這個概念稱為 *廣播 (broadcasting)*，它非常有用。
 
 ## Indexing
 
