@@ -51,19 +51,19 @@ We can create a NumPy array (a.k.a. the mighty [ndarray](https://docs.scipy.org/
 
 看到 numpy 是如何處理這樣的操作了嗎？這個概念稱為 *廣播 (broadcasting)*，它非常有用。
 
-## Indexing
+## 索引
 
-We can index and slice NumPy arrays in all the ways we can slice python lists:
+我們可以像 python 的 list 進行切片一樣，對 numpy 的陣列進行索引和切片：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-array-slice.png)
 
-## Aggregation
+## 聚合
 
-Additional benefits NumPy gives us are aggregation functions:
+Numpy 另外一個好處是提供了聚合函式：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-array-aggregation.png)
 
-In addition to `min`, `max`, and `sum`, you get all the greats like `mean` to get the average, `prod` to get the result of multiplying all the elements together, `std` to get standard deviation, and [plenty of others](https://jakevdp.github.io/PythonDataScienceHandbook/02.04-computation-on-arrays-aggregates.html).
+除了 `min`、`max` 和 `sum` 之外，你還可以使用像是 `mean` 來得到平均值，`prod` 來得到所有元素的乘積，`std` 來得到標準差，以及[其他更多的功能](https://jakevdp.github.io/PythonDataScienceHandbook/02.04-computation-on-arrays-aggregates.html)。
 
 ## In more dimensions
 
