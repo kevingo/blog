@@ -83,13 +83,13 @@ np.array([[1,2],[3,4]])
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-ones-zeros-random.png)
 
-### Matrix Arithmetic
+### 矩陣運算
 
-We can add and multiply matrices using arithmetic operators (`+-*/`) if the two matrices are the same size. NumPy handles those as position-wise operations:
+當兩個矩陣的大小一樣時，我們可以透過運算元 (`+-*/`) 來對其進行相加或相乘。Numpy 是透過 position-wise 的方式進行運算：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-arithmetic.png)
 
-We can get away with doing these arithmetic operations on matrices of different size only if the different dimension is one (e.g. the matrix has only one column or one row), in which case NumPy uses its broadcast rules for that operation:
+我們也可以針對不同大小的矩陣進行運算，前提是其中一個矩陣的的某一維度為 1 (比如說其中一個矩陣只有一行或一列)，如此一來，numpy 就可以透過廣播的機制來進行運算：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-broadcast.png)
 
