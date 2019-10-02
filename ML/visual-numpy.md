@@ -65,9 +65,9 @@ Numpy 另外一個好處是提供了聚合函式：
 
 除了 `min`、`max` 和 `sum` 之外，你還可以使用像是 `mean` 來得到平均值，`prod` 來得到所有元素的乘積，`std` 來得到標準差，以及[其他更多的功能](https://jakevdp.github.io/PythonDataScienceHandbook/02.04-computation-on-arrays-aggregates.html)。
 
-## In more dimensions
+## 更多維度
 
-All the examples we’ve looked at deal with vectors in one dimension. A key part of the beauty of NumPy is its ability to apply everything we’ve looked at so far to any number of dimensions.
+上述我們所看到的範例都是在單一為度的向量上進行，而 numpy 之美在於這些操作可以擴展到任意維度的資料上。
 
 ### Creating Matrices
 
