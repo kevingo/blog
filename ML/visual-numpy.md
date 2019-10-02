@@ -69,9 +69,9 @@ Numpy 另外一個好處是提供了聚合函式：
 
 上述我們所看到的範例都是在單一為度的向量上進行，而 numpy 之美在於這些操作可以擴展到任意維度的資料上。
 
-### Creating Matrices
+### 建立矩陣
 
-We can pass python lists of lists in the following shape to have NumPy create a matrix to represent them:
+我們可以透過傳遞 python 的 list 型態來讓 numpy 建立一個矩陣：
 
 ```python
 np.array([[1,2],[3,4]])
@@ -79,7 +79,7 @@ np.array([[1,2],[3,4]])
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-array-create-2d.png)
 
-We can also use the same methods we mentioned above (`ones()`, `zeros()`, and `random.random()`) as long as we give them a tuple describing the dimensions of the matrix we are creating:
+我們也可以使用上面提到的方法 (`ones()`、`zeros()` 和 `random.random()`)，只要傳入一個 tuple 來描述我們建立矩陣的維度即可：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-ones-zeros-random.png)
 
