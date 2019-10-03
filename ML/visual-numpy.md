@@ -93,13 +93,13 @@ np.array([[1,2],[3,4]])
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-broadcast.png)
 
-### Dot Product
+### 內積
 
-A key distinction to make with arithmetic is the case of [matrix multiplication](https://www.mathsisfun.com/algebra/matrix-multiplying.html) using the dot product. NumPy gives every matrix a `dot()` method we can use to carry-out dot product operations with other matrices:
+算術運算和 [矩陣乘法](https://www.mathsisfun.com/algebra/matrix-multiplying.html) 一個最主要的區別在於內積。在 Numpy，每一個矩陣都有一個 `dot()` 方法，我們可以透過它讓矩陣之間進行內積運算：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-dot-product-1.png)
 
-I’ve added matrix dimensions at the bottom of this figure to stress that the two matrices have to have the same dimension on the side they face each other with. You can visualize this operation as looking like this:
+我在上圖的右下角顯示了矩陣的維度來強調相臨的兩個維度必須要有相同的維度，你可以把上述的運算看作：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-dot-product-2.png)
 
