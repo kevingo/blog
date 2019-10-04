@@ -119,13 +119,13 @@ np.array([[1,2],[3,4]])
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-aggregation-4.png)
 
-## Transposing and Reshaping
+## 轉置和 reshape
 
-A common need when dealing with matrices is the need to rotate them. This is often the case when we need to take the dot product of two matrices and need to align the dimension they share. NumPy arrays have a convenient property called `T` to get the transpose of a matrix:
+矩陣經常會進行的必要操作是轉置，當我們要對兩個矩陣進行內積操作時，經常會需要將其共享的維度對齊。在 Numpy 中，有一個方便的屬性 `T` 可以得到一個轉置矩陣：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-transpose.png)
 
-In more advanced use case, you may find yourself needing to switch the dimensions of a certain matrix. This is often the case in machine learning applications where a certain model expects a certain shape for the inputs that is different from your dataset. NumPy’s `reshape()` method is useful in these cases. You just pass it the new dimensions you want for the matrix. You can pass -1 for a dimension and NumPy can infer the correct dimension based on your matrix:
+在更進階的使用情境中，你可能需要變換某個特定矩陣的維度。這是因為在機器學習的應用中，特定的模型會需要特定的輸入維度，而這個維度可能跟你原本的資料集不同。在 numpy 中，`reshape()` 方法可以很方便地讓你變更資料的維度。你只要將所需的維度傳入此方法即可，也可以傳入 -1，numpy 會自動判斷出正確的維度：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-reshape.png)
 
