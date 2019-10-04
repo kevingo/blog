@@ -103,9 +103,9 @@ np.array([[1,2],[3,4]])
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-dot-product-2.png)
 
-### Matrix Indexing
+### 矩陣索引
 
-Indexing and slicing operations become even more useful when we’re manipulating matrices:
+當我們在矩陣的運算時，索引和切片變得相當有用：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-indexing.png)
 
