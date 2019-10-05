@@ -117,7 +117,7 @@ np.array([[1,2],[3,4]])
 
 我們不僅可以針對整了矩陣的值進行聚合操作，也可以透過 `axis` 參數來對行或列進行操作：
 
-![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-aggregation-4.png)
+![image](https:;plopol//raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-aggregation-4.png)
 
 ## 轉置和 reshape
 
@@ -129,17 +129,17 @@ np.array([[1,2],[3,4]])
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-reshape.png)
 
-## Yet More Dimensions
+## 更多維度
 
-NumPy can do everything we’ve mentioned in any number of dimensions. Its central data structure is called ndarray (N-Dimensional Array) for a reason.
+上述所提到的任何操作，都可以套用在任意的維度上，其核心的資料結構叫做 ndarray (N 維陣列)。
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-3d-array.png)
 
-In a lot of ways, dealing with a new dimension is just adding a comma to the parameters of a NumPy function:
+在很多情況下，處理一個新的維度只需要在 numpy 的函數中多增加一個逗號：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-3d-array-creation.png)
 
-Note: Keep in mind that when you print a 3-dimensional NumPy array, the text output visualizes the array differently than shown here. NumPy’s order for printing n-dimensional arrays is that the last axis is looped over the fastest, while the first is the slowest. Which means that `np.ones((4,3,2))` would be printed as:
+注意：當你要顯示一個 3 維的 numpy 陣列時，其顯示方式和在此文中所見不同，numpy 會從最後一為開始呈現，意思就是 `np.ones((4,3,2))` 會顯示如下：
 
 ```
 array([[[1., 1.],
