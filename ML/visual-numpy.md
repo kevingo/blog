@@ -159,37 +159,39 @@ array([[[1., 1.],
         [1., 1.]]])
 ```
 
-## Practical Usage
+## 實務用法
 
-And now for the payoff. Here are some examples of the useful things NumPy will help you through.
+現在作為回報，底下是一些透過 numpy 陣列來完成特定任務的範例。
 
-### Formulas
+### 公式
 
-Implementing mathematical formulas that work on matrices and vectors is a key use case to consider NumPy for. It’s why NumPy is the darling of the scientific python community. For example, consider the mean square error formula that is central to supervised machine learning models tackling regression problems:
+實作需要透過陣列或向量來完成的數學公式是 numpy 主力的戰場之一，這也是為什麼 numpy 在 python 的社群中會被用在科學運算的原因。舉例來說，均方差是監督式學習來處理回歸問題的核心：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/mean-square-error-formula.png)
 
-Implementing this is a breeze in NumPy:
+實作此公式在 numpy 中很容易：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-mean-square-error-formula.png)
 
-The beauty of this is that numpy does not care if `predictions` and `labels` contain one or a thousand values (as long as they’re both the same size). We can walk through an example stepping sequentially through the four operations in that line of code:
+這美妙的地方在於，numpy 不在乎 `predictions` 和 `labels` 裡面是一個還是一千個值 (只要它們的大小相同)。我們接下來會一步步拆解這個範例：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-mse-1.png)
 
 Both the predictions and labels vectors contain three values. Which means n has a value of three. After we carry out the subtraction, we end up with the values looking like this:
 
+predictions 和 labels 向量都有三個值，也就是 n = 3，在我們進行相減後，結果如下：
+
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-mse-2.png)
 
-Then we can square the values in the vector:
+接著對向量進行平方，得到：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-mse-3.png)
 
-Now we sum these values:
+接著進行加總：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-mse-4.png)
 
-Which results in the error value for that prediction and a score for the quality of the model.
+此結果即是 prediction 的誤差值，以及此模型的品質。
 
 ## Data Representation
 
