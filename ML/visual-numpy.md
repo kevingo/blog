@@ -177,8 +177,6 @@ array([[[1., 1.],
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-mse-1.png)
 
-Both the predictions and labels vectors contain three values. Which means n has a value of three. After we carry out the subtraction, we end up with the values looking like this:
-
 predictions 和 labels 向量都有三個值，也就是 n = 3，在我們進行相減後，結果如下：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-mse-2.png)
