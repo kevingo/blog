@@ -191,25 +191,25 @@ predictions 和 labels 向量都有三個值，也就是 n = 3，在我們進行
 
 此結果即是 prediction 的誤差值，以及此模型的品質。
 
-## Data Representation
+## 資料表示
 
-Think of all the data types you’ll need to crunch and build models around (spreadsheets, images, audio…etc). So many of them are perfectly suited for representation in an n-dimensional array:
+想想看所有你需要用來處理和建立模型的資料 (例如：表格、影像、聲音...等等)，它們有許多都非常適合使用 n 維陣列來表示：
 
-### Tables and Spreadsheets
+### 表格和電子試算表
 
-- A spreadsheet or a table of values is a two dimensional matrix. Each sheet in a spreadsheet can be its own variable. The most popular abstraction in python for those is the [pandas dataframe](https://jalammar.github.io/gentle-visual-intro-to-data-analysis-python-pandas/), which actually uses NumPy and builds on top of it.
+- 電子試算表或是表格是一個二維陣列。每一個電子試算表中的工作表都可以有他自己的變數。在 python 中處理這類型資料最熱門的方法是使用 [pandas dataframe](https://jalammar.github.io/gentle-visual-intro-to-data-analysis-python-pandas/)，它正是建構在 numpy 之上。
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/excel-to-pandas.png)
 
-### Audio and Timeseries
+### 聲音和時序資料
 
-- An audio file is a one-dimensional array of samples. Each sample is a number representing a tiny chunk of the audio signal. CD-quality audio may have 44,100 samples per second and each sample is an integer between -32767 and 32768. Meaning if you have a ten-seconds WAVE file of CD-quality, you can load it in a NumPy array with length 10 * 44,100 = 441,000 samples. Want to extract the first second of audio? simply load the file into a NumPy array that we’ll call `audio`, and get `audio[:44100]`.
+- 聲音是一維陣列的檔案格式。陣列中的每一個值代表聲音訊號的一小部分。CD 品質的聲音每一秒會有 44,100 筆資料，每一筆資料是 -32767 到 32768 的整數。換句話說，如果你有一個長度十秒的 CD 聲音檔案，你可以透過 10 * 44,100 = 441,000 的 numpy 陣列來讀取資料。如果想要讀取聲音檔案的第一秒，只需要將資料讀入 numpy 陣列中，然後透過 `audio[:44100]` 就可以讀取了。
 
-Here’s a look at a slice of an audio file:
+底下是一段聲音檔案：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-audio.png)
 
-The same goes for time-series data (for example, the price of a stock over time).
+而時間序列的資料也是相同的處理方法 (比如說，股價隨著時間波動的資料)。
 
 ### Images
 
