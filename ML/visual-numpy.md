@@ -211,16 +211,16 @@ predictions 和 labels 向量都有三個值，也就是 n = 3，在我們進行
 
 而時間序列的資料也是相同的處理方法 (比如說，股價隨著時間波動的資料)。
 
-### Images
+### 圖片
 
-- An image is a matrix of pixels of size (height x width).
-    - If the image is black and white (a.k.a. grayscale), each pixel can be represented by a single number (commonly between 0 (black) and 255 (white)). Want to crop the top left 10 x 10 pixel part of the image? Just tell NumPy to get you `image[:10,:10]`.
+- 一張圖片是一個像素所形成的矩陣 (長 * 寬)
+    - 如果圖片是黑白的 (也就是灰階圖片)，每一個像素可以透過單一數字表示 (通常會介於 0 (黑色) 到 255 (白色) 之間)。當你想要擷取一張圖片左上角 10 x 10 像素的圖片時，只要透過 numpy `image[:10, :10]` 即可：
 
-Here’s a look at a slice of an image file:
+底下是一張灰階圖片的範例：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-grayscale-image.png)
 
-- If the image is colored, then each pixel is represented by three numbers - a value for each of red, green, and blue. In that case we need a 3rd dimension (because each cell can only contain one number). So a colored image is represented by an ndarray of dimensions: (height x width x 3).
+- 如果圖片是彩色的，每一個像素會用三個數字來表示 - 紅色、綠色和藍色。這種情況下，我們需要一個三維陣列 (因為每個位置只能包含一個數字)。所以一張彩色圖片會透過 ndarray 的資料結構來表示：(長 * 寬 * 3)
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-color-image.png)
 
