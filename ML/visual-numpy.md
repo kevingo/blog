@@ -224,32 +224,32 @@ predictions 和 labels 向量都有三個值，也就是 n = 3，在我們進行
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-color-image.png)
 
-### Language
+### 語言
 
-If we’re dealing with text, the story is a little different. The numeric representation of text requires a step of building a vocabulary (an inventory of all the unique words the model knows) and an [embedding step](https://jalammar.github.io/illustrated-word2vec/). Let us see the steps of numerically representing this (translated) quote by an ancient spirit:
+如果我們想要處理文字，狀況會有一點點不一樣。當你想要透過數值來表示文字的時候，你需要建立一個詞庫 (這個詞庫指的是模型需要用到的所有單字的列表)，還有一個 [嵌入的步驟](https://jalammar.github.io/illustrated-word2vec/)。讓我們一步步來看如何處理底下這個詩句：
 
 “Have the bards who preceded me left any theme unsung?”
 
-A model needs to look at a large amount of text before it can numerically represent the anxious words of this warrior poet. We can proceed to have it process a [small dataset](http://mattmahoney.net/dc/textdata.html) and use it to build a vocabulary (of 71,290 words):
+在模型想要用數值來表示上面該詩句之前，需要先看過大量的文字。我們可以處理一個[小的資料集](http://mattmahoney.net/dc/textdata.html)來看看要怎麼建立一個詞庫(共有 71,290 個字)：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-nlp-vocabulary.png)
 
-The sentence can then be broken into an array of tokens (words or parts of words based on common rules):
+上面的詩句可以被分割成一個 token 的陣列 (基於某些規則所分割出來的字或部分字)：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-nlp-tokenization.png)
 
-We then replace each word by its id in the vocabulary table:
+接著，我們用詞庫中的 id 來取代每個字：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-nlp-ids.png)
 
-These ids still don’t provide much information value to a model. So before feeding a sequence of words to a model, the tokens/words need to be replaced with their embeddings (50 dimension [word2vec embedding](https://jalammar.github.io/illustrated-word2vec/) in this case):
+這一些 id 對於模型來說沒有提供有用的資訊，所以在交給模型訓練之前，我們需要使用 [word2vec embedding](https://jalammar.github.io/illustrated-word2vec/) 來取代原本的 id 表示法 (在這個範例中是一個 50 維的 embedding)：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-nlp-embeddings.png)
 
-You can see that this NumPy array has the dimensions [embedding_dimension x sequence_length]. In practice these would be the other way around, but I’m presenting it this way for visual consistency. For performance reasons, deep learning models tend to preserve the first dimension for batch size (because the model can be trained faster if multiple examples are trained in parallel). This is a clear case where `reshape()` becomes super useful. A model like [BERT](https://jalammar.github.io/illustrated-bert/), for example, would expect its inputs in the shape: [batch_size, sequence_length, embedding_size].
+你可以看到這個 numpy 陣列的維度是 [embedding_dimension x sequence_length]，在實務上，呈現的樣子可能不太一樣，但在這裡為了視覺的一致性，我透過下圖來表示其結果。由於效能的考量，深度學習模型會保留等同於 batch 大小第一維 (因為當多筆訓練資料時，模型就可以透過平行化的方式來訓練)。在這種情況下，`reshape()` 就變得很有用，比如說像 [Bert](https://jalammar.github.io/illustrated-bert/) 模型的輸入維度就會是 [batch_size, sequence_length, embedding_size]。
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-nlp-bert-shape.png)
 
-This is now a numeric volume that a model can crunch and do useful things with. I left the other rows empty, but they’d be filled with other examples for the model to train on (or predict).
+現在上述的詩句被表示成數值形式，模型就可以對其進行訓練。其他行雖然目前是空白的，但它將會被更多的訓練資料給填滿。
 
 (It turned out the [poet’s words](https://en.wikisource.org/wiki/The_Poem_of_Antara) in our example were immortalized more so than those of the other poets which trigger his anxieties. Born a slave owned by his father, [Antarah’s](https://en.wikipedia.org/wiki/Antarah_ibn_Shaddad) valor and command of language gained him his freedom and the mythical status of having his poem as one of [seven poems suspended in the kaaba](https://en.wikipedia.org/wiki/Mu%27allaqat) in pre-Islamic Arabia).
