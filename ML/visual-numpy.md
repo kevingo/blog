@@ -251,5 +251,3 @@ predictions 和 labels 向量都有三個值，也就是 n = 3，在我們進行
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-nlp-bert-shape.png)
 
 現在上述的詩句被表示成數值形式，模型就可以對其進行訓練。其他行雖然目前是空白的，但它將會被更多的訓練資料給填滿。
-
-(It turned out the [poet’s words](https://en.wikisource.org/wiki/The_Poem_of_Antara) in our example were immortalized more so than those of the other poets which trigger his anxieties. Born a slave owned by his father, [Antarah’s](https://en.wikipedia.org/wiki/Antarah_ibn_Shaddad) valor and command of language gained him his freedom and the mythical status of having his poem as one of [seven poems suspended in the kaaba](https://en.wikipedia.org/wiki/Mu%27allaqat) in pre-Islamic Arabia).
