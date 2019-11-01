@@ -1,5 +1,5 @@
-本文翻譯自 [A Visual Intro to NumPy and Data Representation
-](https://jalammar.github.io/visual-numpy/)，對於從事資料分析或機器學習的朋友來說，numpy 一定是不陌生的 Python 套件。不管是資料處理所使用的 Pandas 、機器學習用到的 scikit-learn 或是 deep learning 所使用的 tensorflow 或 pytorch，底層在資料的操作或儲存上，大多會用到 numpy 來做科學的操作。而本篇文章以圖文並茂的方式詳細說明了 numpy 重要的操作，並且告訴你 numpy 的資料結構如何用來儲存文字、圖片、聲音等重要的資料。同時，numpy 底層使用 C/C++ 和 fortran 來實作，也大幅的提升了多維度資料運算上的效能。希望透過此文的分享，讓大家在學習 numpy 的過程中能夠更加清楚其操作與用途。
+本文翻譯自 [Jay Alammar](https://twitter.com/jalammar) 的 [A Visual Intro to NumPy and Data Representation
+](https://jalammar.github.io/visual-numpy/) 這篇部落格文章。對於從事資料分析或機器學習的朋友來說，numpy 一定是不陌生的 Python 套件。不管是資料處理所使用的 Pandas 、機器學習用到的 scikit-learn 或是 deep learning 所使用的 tensorflow 或 pytorch，底層在資料的操作或儲存上，大多會用到 numpy 來做科學的操作。而本篇文章以圖文並茂的方式詳細說明了在 numpy 中必學的操作，並且告訴你 numpy 的資料結構如何用來儲存文字、圖片、聲音等重要的資料，如果你有心學習資料科學或機器學習，一定要把 numpy 學好。希望透過此文的分享，讓大家在學習 numpy 的過程中能夠更加清楚其操作與用途。
 
 ---
 
@@ -7,7 +7,7 @@
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-array.png)
 
-[NumPy](https://www.numpy.org/) 套件是 python 生態系中針對資料分析、機器學習和科學計算的重要角色。它極大的簡化了向量和矩陣的操作運算，某些 python 的主要套件大量的依賴 numpy 作為其架構的基礎 (例如：scikit-learn、SciPy、Pandas 和 tensorflow)。除了可以針對資料進行切片 (slice) 和 切塊 (dice) 之外，熟悉 numpy 還可以對使用上述套件帶來極大的好處。
+[NumPy](https://www.numpy.org/) 套件是 python 生態系中針對資料分析、機器學習和科學計算的重要角色。它大量簡化了向量和矩陣的操作運算，某些 python 的主要套件大量依賴 numpy 作為其架構的基礎 (例如：scikit-learn、SciPy、Pandas 和 tensorflow)。除了可以針對資料進行切片 (slice) 和 切塊 (dice) 之外，熟悉 numpy 還可以對使用上述套件帶來極大的好處。
 
 在本文中，我們會學習 numpy 主要的使用方式，並且看到它如何用來表示不同類型的資料 (表格、影像、文字 ... 等) 作為機器學習模型的輸入。
 
@@ -17,8 +17,6 @@ import numpy as np
 
 ## 建立陣列
 
-We can create a NumPy array (a.k.a. the mighty [ndarray](https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html)) by passing a python list to it and using ` np.array()`. In this case, python creates the array we can see on the right here:
-
 我們可以透過 `np.array()` 並傳入一個 python list 來建立一個 numpy 的陣列 (又叫 [ndarray]((https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html)))，如下所示：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/create-numpy-array-1.png)
@@ -27,7 +25,7 @@ We can create a NumPy array (a.k.a. the mighty [ndarray](https://docs.scipy.org/
 
 ![image](https://github.com/kevingo/blog/blob/master/screenshot/create-numpy-array-ones-zeros-random.png)
 
-一但我們建立了陣列後，就可以透過有趣的方式盡情的操作他們。
+一但我們建立了陣列後，就可以透過有趣的方式來操作它們。
 
 ## 矩陣運算
 
@@ -35,13 +33,13 @@ We can create a NumPy array (a.k.a. the mighty [ndarray](https://docs.scipy.org/
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-arrays-example-1.png)
 
-將這兩個 numpy 陣列依照位置相加 (即每一行相加)，只要輸入 `data + ones` 即可：
+將這兩個 numpy 陣列依照位置相加 (即每一行相加)，只要使用 `data + ones` 即可：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-arrays-adding-1.png)
 
-當我開始學習這個工具後，我發現這樣抽象的思考讓我不用透過類似迴圈的方式來進行計算，而這樣的方式可以讓我透過更高層次的角度來思考問題。
+當我開始學習 numpy 後，我發現這樣抽象的思考讓我不需要使用類似迴圈的方式來進行計算，如此一來，我可以透過更高層次的角度來思考問題。
 
-而除了相加之外，我們還可以進行以下的操作：
+而除了相加之外，我們還可以進行以下操作：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-array-subtract-multiply-divide.png)
 
@@ -57,7 +55,7 @@ We can create a NumPy array (a.k.a. the mighty [ndarray](https://docs.scipy.org/
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-array-slice.png)
 
-## 聚合
+## 聚合 (aggregation)
 
 Numpy 另外一個好處是提供了聚合函式：
 
@@ -67,11 +65,11 @@ Numpy 另外一個好處是提供了聚合函式：
 
 ## 更多維度
 
-上述我們所看到的範例都是在單一為度的向量上進行，而 numpy 之美在於這些操作可以擴展到任意維度的資料上。
+上述我們所看到的範例都是在單一維度的向量上進行，而 numpy 之美在於這些操作可以擴展到任意維度的資料上。
 
 ### 建立矩陣
 
-我們可以透過傳遞 python 的 list 型態來讓 numpy 建立一個矩陣：
+我們可以透過傳遞 python 的 list 讓 numpy 建立一個矩陣：
 
 ```python
 np.array([[1,2],[3,4]])
@@ -85,7 +83,7 @@ np.array([[1,2],[3,4]])
 
 ### 矩陣運算
 
-當兩個矩陣的大小一樣時，我們可以透過運算元 (`+-*/`) 來對其進行相加或相乘。Numpy 是透過 position-wise 的方式進行運算：
+當兩個矩陣的大小相同時，我們可以透過運算元 (`+-*/`) 來對其進行相加或相乘。Numpy 是透過 position-wise 的方式進行運算：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-arithmetic.png)
 
@@ -95,11 +93,11 @@ np.array([[1,2],[3,4]])
 
 ### 內積
 
-算術運算和 [矩陣乘法](https://www.mathsisfun.com/algebra/matrix-multiplying.html) 一個最主要的區別在於內積。在 Numpy，每一個矩陣都有一個 `dot()` 方法，我們可以透過它讓矩陣之間進行內積運算：
+算術運算和[矩陣乘法](https://www.mathsisfun.com/algebra/matrix-multiplying.html)一個最主要的區別在於內積。在 Numpy，每一個矩陣都有一個 `dot()` 方法，我們可以透過它讓矩陣之間進行內積運算：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-dot-product-1.png)
 
-我在上圖的右下角顯示了矩陣的維度來強調相臨的兩個維度必須要有相同的維度，你可以把上述的運算看作：
+我在上圖的右下角顯示了矩陣的維度來強調相臨的兩個維度必須相同，你可以把上述的運算看作：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-dot-product-2.png)
 
@@ -117,7 +115,7 @@ np.array([[1,2],[3,4]])
 
 我們不僅可以針對整了矩陣的值進行聚合操作，也可以透過 `axis` 參數來對行或列進行操作：
 
-![image](https:;plopol//raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-aggregation-4.png)
+![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-matrix-aggregation-4.png)
 
 ## 轉置和 reshape
 
