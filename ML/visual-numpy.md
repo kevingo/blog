@@ -119,7 +119,7 @@ np.array([[1,2],[3,4]])
 
 ## 轉置和 reshape
 
-矩陣經常會進行的必要操作是轉置，當我們要對兩個矩陣進行內積操作時，經常會需要將其共享的維度對齊。在 Numpy 中，有一個方便的屬性 `T` 可以得到一個轉置矩陣：
+矩陣經常會進行的操作是轉置，當我們要對兩個矩陣進行內積操作時，經常會需要將其共享的維度對齊。在 Numpy 中，有一個方便的屬性 `T` 可以得到一個轉置矩陣：
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-transpose.png)
 
@@ -137,7 +137,7 @@ np.array([[1,2],[3,4]])
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/numpy-3d-array-creation.png)
 
-注意：當你要顯示一個 3 維的 numpy 陣列時，其顯示方式和在此文中所見不同，numpy 會從最後一為開始呈現，意思就是 `np.ones((4,3,2))` 會顯示如下：
+注意：當你要顯示一個 3 維的 numpy 陣列時，其顯示方式和在此文中所見不同，numpy 會從最後一維開始呈現，意思就是 `np.ones((4,3,2))` 會顯示如下：
 
 ```
 array([[[1., 1.],
@@ -159,7 +159,7 @@ array([[[1., 1.],
 
 ## 實務用法
 
-現在作為回報，底下是一些透過 numpy 陣列來完成特定任務的範例。
+作為學習到目前的回報，底下是一些透過 numpy 陣列來完成特定任務的範例。
 
 ### 公式
 
@@ -195,7 +195,7 @@ predictions 和 labels 向量都有三個值，也就是 n = 3，在我們進行
 
 ### 表格和電子試算表
 
-- 電子試算表或是表格是一個二維陣列。每一個電子試算表中的工作表都可以有他自己的變數。在 python 中處理這類型資料最熱門的方法是使用 [pandas dataframe](https://jalammar.github.io/gentle-visual-intro-to-data-analysis-python-pandas/)，它正是建構在 numpy 之上。
+- 電子試算表或是表格是一個二維陣列。每一個電子試算表中的工作表都可以有他自己的變數。在 python 中處理這類型資料最熱門的方法是使用 [pandas dataframe](https://jalammar.github.io/gentle-visual-intro-to-data-analysis-python-pandas/)，它正是建構在 numpy 之上的套件。
 
 ![image](https://raw.githubusercontent.com/kevingo/blog/master/screenshot/excel-to-pandas.png)
 
