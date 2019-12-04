@@ -68,4 +68,24 @@ y_pred = clf.predict(x_test_trans)
 
 而透過 `pipeline` 就可以很方便的幫助我們搭建一個清楚明瞭且順序明確的機器學習流水線。
 
+此外，你還可以透過 `make_pipeline` 方法，來幫助我們更快的建立流水線：
+
+```python
+model = make_pipeline(
+    StandardScaler(),
+    PCA(n_components=2),
+    RandomForestClassifier()
+)
+```
+
+`make_pipeline` 的官方文件是這樣說的：
+
+```
+Construct a Pipeline from the given estimators.
+
+This is a shorthand for the Pipeline constructor; it does not require, and does not permit, naming the estimators. Instead, their names will be set to the lowercase of their types automatically.
+```
+
+所以你在宣告每一個 edtimator 的時候，不需要也不允許給定它名稱，它會自動被命名為對應型別的小寫名稱。
+
 甚至，你可以自訂屬於自己的 estimator 和 transformer，來打造自己的流水線，並透過 `FeatureUnion` 來串接不同的 `pipeline`，我們在下一篇會繼續探討這部分的內容。
