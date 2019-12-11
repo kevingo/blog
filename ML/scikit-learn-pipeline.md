@@ -15,11 +15,18 @@
 
 ## estimator
 
-estimator 是 `scikit-learn` 中基礎的物件，只要有實作 `fit` 方法類別，都可以稱之為一個 estimator。
+estimator 是 `scikit-learn` 中基礎的物件，只要有實作 `fit` 方法類別，都可以稱之為一個 estimator。很多時候，你可以把 estimator 想像成分類器。通常 `estimator` 都會包含以下方法：
+
+- `fit`：透過訓練資料來訓練分類器演算法中的參數。
+- `predict`：將訓練好的分類器用在預測測試資料集上。
 
 ## transformer
 
-具有 `fit` 和 `transform` 或是 `fit_transform` 方法的類別。這種類別的用途顧名思義就是要對於資料進行轉換，你看到許多在 `preprocessing` 中的類別，或是 `PCA` 等降維的方法都是屬於此類型。
+具有 `fit` 和 `transform` 或是 `fit_transform` 方法的類別。這種類別的用途顧名思義就是要對於資料進行轉換，你看到許多在 `preprocessing` 中的類別，或是 `PCA` 等降維的方法都是屬於此類型。主要會包含以下幾個方法：
+
+- `fit`：透過資料來訓練演算法的參數
+- `transform`：實際進行資料轉換
+- `fit_transform`：同時進行 `fit` 和 `transform` 兩個方法
 
 ## predictor
 
