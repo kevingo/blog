@@ -13,9 +13,20 @@
 ## A3C
 
 * Policy-based learn 一個 actor
-* Value-based learn 一個 critic 
+* Value-based learn 一個 critic
 
 ## Gym RL framework
+
+* The gym library is a collection of test problems — environments — that you can use to work out your reinforcement learning algorithms. These environments have a shared interface, allowing you to write general algorithms.
+
+* env 的 `step` function 會回傳四個物件：
+
+1. observation (obj)
+2. reward (float)
+3. done (boolean)
+4. info (dict)
+
+* The process gets started by calling `reset()`, which returns an `initial observation`. (呼叫 reset() 時會回傳一個初始化的 observation)，通常用在整個 RL 開始訓練的開始步驟。
 
 * show all env
 ```python
