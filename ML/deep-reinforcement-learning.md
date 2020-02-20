@@ -9,13 +9,12 @@
 * agent 的目標是讓採取 action 去 max reward
 * 從開始到結束叫做一個 episode，agnet 的目標就是在一個 episode 當中去 max reward
 
-
-## A3C
+## AC/A2C/A3C
 
 * Policy-based learn 一個 actor
 * Value-based learn 一個 critic
 
-## Gym RL framework
+## Gym RL framework (environment)
 
 * The gym library is a collection of test problems — environments — that you can use to work out your reinforcement learning algorithms. These environments have a shared interface, allowing you to write general algorithms.
 
@@ -66,6 +65,20 @@ class CustomEnv(gym.Env):
     # Render the environment to the screen
     ...
 ```
+
+## stable_baseline - agent RL framework
+
+* a set of implementations of Reinforcement Learning (RL) algorithms with a common interface, based on OpenAI Baselines.
+* openAI stable_baseline 有什麼問題
+  1. lack of comments
+  2. absence of meaningful variable names and consistency (no common codestyle) and lots of duplicated code (2)
+* 優點
+  1. commented code and single codestyle
+  2. common interface for every algorithm (Unified Interface)
+  3. Support save, load model
+  4. Training on Any Type of Features (current OpenAI Baselines only support continuous actions when not using images as input)
+
+
 
 ### references
 1. [ML Lecture 23-1: Deep Reinforcement Learning
