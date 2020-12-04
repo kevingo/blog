@@ -12,7 +12,11 @@
 ## Q-learning
 
 * value-based algorithm
-* 
+
+## Policy gradient
+
+* policy 在 DRL 中就是 network，用來決定當我收到 environment 的 state 的時候，我要給出的 output action
+*
 
 ## AC/A2C/A3C
 
